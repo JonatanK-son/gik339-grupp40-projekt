@@ -15,6 +15,16 @@ server
     next();
   });
 
-  server.listen(3000, () => {
-    console.log("server running on http://localhost:3000");
+server.listen(3000, () => {
+  console.log("server running on http://localhost:3000");
+});
+
+server.get("/cars", (req, res) => {
+  db.all("SELECT * FROM cars", (err, rows) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.send(rows);
+    }
   });
+});

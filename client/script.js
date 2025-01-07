@@ -37,6 +37,7 @@ function fetchData() {
           html += `</ul>`;
   
           const listContainer = document.getElementById('listContainer');
+          listContainer.innerHTML = "";
           listContainer.insertAdjacentHTML('beforeend', html);
         }
       });

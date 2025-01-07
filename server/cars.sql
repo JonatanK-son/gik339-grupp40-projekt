@@ -6,6 +6,6 @@ CREATE TABLE IF NOT EXISTS cars(
     ,color  VARCHAR(8) NOT NULL
 );
 INSERT INTO cars(id, brand, type, color) VALUES (1, "Volvo", "Kombi", "Röd");
-INSERT INTO cars(id, brand, type, color) VALUES (2, "Volvo", "Kombi", "Röd");
+INSERT INTO cars(id, brand, type, color) VALUES (2, "BMW", "Sedan", "Blå");
 
 select * from cars;

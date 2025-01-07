@@ -42,6 +42,36 @@ function fetchData() {
       });
 }
 
+userForm.addEventListener("submit", handleSubmit)
+
+function handleSubmit(e) {
+  e.preventDefault();
+  console.log(e);
+  const serverUserObject = {
+    brand: "",
+    type: "",
+    fuel: "",
+    color: ""
+  };
+  serverUserObject.brand = userForm.brand.value; //kan sättas i loop
+  serverUserObject.type = userForm.type.value;
+  serverUserObject.fuel = userForm.fuel.value;
+  serverUserObject.color = userForm.color.value;
+
+  const request = new Request(url, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json"
+    },
+    body: JSON.stringify(serverUserObject)
+  });
+
+  fetch(request).then((response) => {
+    fetchData();
+    userForm.reset();
+  })
+}
+
 function translate(text, opacity) {
     const lowerCaseText = text.toLowerCase()
     const color = translations[lowerCaseText];

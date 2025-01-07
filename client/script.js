@@ -11,11 +11,14 @@ function fetchData() {
           cars.forEach((car) => {
             html += `
           <li
-            class="col-md-3 bg-light text-dark p-3 rounded border border-secondary d-flex flex-column justify-content-between">
+            class="col-md-3 p-3 rounded border border-secondary d-flex flex-column justify-content-between">
+            <style="background-color: ${car.color}; color: ${car.color}; border-color: ${car.color};">
             <h3>${car.brand} ${car.type}</h3>
             <div>
               <button
-                class="btn btn-outline-secondary btn-sm mt-2" onclick="setCurrentUser(${car.id})">
+                class="btn btn-outline-secondary btn-sm mt-2" 
+                style="border-color: ${car.color}; background-color: rgba(255, 255, 255, 0.5); color: ${car.color};"
+                onclick="setCurrentUser(${car.id})">
                 Ändra
               </button>
               <button class="btn btn-outline-secondary btn-sm mt-2" onclick="deleteUser(${car.id})">
@@ -31,4 +34,4 @@ function fetchData() {
           listContainer.insertAdjacentHTML('beforeend', html);
         }
       });
-  }
+}

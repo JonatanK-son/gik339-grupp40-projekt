@@ -13,6 +13,7 @@ function fetchData() {
           <li
             class="col-md-3 bg-light text-dark p-3 rounded border border-secondary d-flex flex-column justify-content-between">
             <h3>${car.brand} ${car.type}</h3>
+            <p>${car.fuel}</p>
             <div>
               <button
                 class="btn btn-outline-secondary btn-sm mt-2" onclick="setCurrentUser(${car.id})">

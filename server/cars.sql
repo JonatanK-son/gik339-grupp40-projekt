@@ -4,7 +4,8 @@ CREATE TABLE IF NOT EXISTS cars(
     ,brand  VARCHAR(12) NOT NULL
     ,type   VARCHAR(8) NOT NULL
     ,color  VARCHAR(8) NOT NULL
+    ,fuel VARCHAR(8) NOT NULL
 );
-INSERT INTO cars(id, brand, type, color) VALUES (1, "Volvo", "Kombi", "Röd");
+INSERT INTO cars(id, brand, type, color, fuel) VALUES (1, "Volvo", "Kombi", "Röd", "Bensin");
 
 select * from cars;

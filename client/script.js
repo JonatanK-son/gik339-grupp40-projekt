@@ -17,6 +17,7 @@ function fetchData() {
             class="col-md-3 p-3 rounded border border-secondary d-flex flex-column justify-content-between"
             style="background-color: ${translatedBGColor}; color: ${translatedColor};">
             <h3>${car.brand} ${car.type}</h3>
+            <p>${car.fuel}</p>
             <div>
               <button
                 class="btn btn-outline-secondary btn-sm mt-2" 

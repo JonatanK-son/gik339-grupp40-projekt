@@ -86,3 +86,17 @@ server.put("/cars", (req, res) => {
     }
   });
 });
+
+server.delete("/cars/:id", (req, res) => {
+  const id = req.params.id;
+  const sql = `DELETE FROM cars WHERE id=${id}`;
+
+  db.run(sql, (err) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send(err);
+    } else {
+      res.send("Bilen borttagen");
+    }
+  })
+})

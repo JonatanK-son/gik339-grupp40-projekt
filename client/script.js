@@ -17,7 +17,7 @@ function fetchData() {
             class="col-md-3 p-3 rounded border border-secondary d-flex flex-column justify-content-between"
             style="background-color: ${translatedBGColor}; color: ${translatedColor};">
             <h3>${car.brand} ${car.type}</h3>
-            <p>${car.fuel}</p>
+            <p>${car.fuel} ${car.year}</p>
             <div>
               <button
                 class="btn btn-outline-secondary btn-sm mt-2" 
@@ -62,6 +62,7 @@ function setCurrentCar(id) {
     carForm.brand.value = car.brand;
     carForm.type.value = car.type;
     carForm.fuel.value = car.fuel;
+    carForm.year.value = car.year;
     carForm.color.value = car.color;
 
     localStorage.setItem(`currentId`, car.id)
@@ -77,11 +78,13 @@ function handleSubmit(e) {
     brand: "",
     type: "",
     fuel: "",
+    year: "",
     color: ""
   };
   serverCarObject.brand = carForm.brand.value; //kan sättas i loop
   serverCarObject.type = carForm.type.value;
   serverCarObject.fuel = carForm.fuel.value;
+  serverCarObject.year = carForm.year.value;
   serverCarObject.color = carForm.color.value;
 
   const id = localStorage.getItem("currentId");

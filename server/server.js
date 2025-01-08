@@ -43,6 +43,20 @@ server.get("/cars/:id", (req, res) => {
   });
 })
 
+server.get("/cars/:id", (req, res) => {
+  const id = req.params.id;
+
+  const sql = `SELECT * FROM cars WHERE id=${id}`
+
+  db.all(sql, (err, rows) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.send(rows[0]);
+    }
+  });
+})
+
 server.post("/cars", (req, res) => {
   const car = req.body;
   const sql = `INSERT INTO cars(brand, type, fuel, color) VALUES
@@ -59,7 +73,6 @@ server.post("/cars", (req, res) => {
 })
 
 server.put("/users", (req, res) => {
-server.put("/cars", (req, res) => {
   const bodyData = req.body;
 
   const id = bodyData.id;
@@ -71,20 +84,4 @@ server.put("/cars", (req, res) => {
   };
 
   res.send(car);
-  let updateString = "";
-  const columnsArray = Object.keys(car);
-  columnsArray.forEach((column, i) => {
-    updateString += `${column}="${car[column]}"`;
-    if(i !== columnsArray.length - 1) updateString += ",";
-  });
-  const sql = `UPDATE cars SET ${updateString} WHERE id=${id}`; 
-
-  db.run(sql, (err) => {
-    if(err) {
-      console.log(err);
-      res.status(500).send(err);
-    } else {
-      res.send("Bilen updaterades");
-    }
-  });
 });

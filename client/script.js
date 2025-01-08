@@ -49,33 +49,51 @@ function deleteCar(id) {
   .then((result) => fetchData());
 }
 
-userForm.addEventListener("submit", handleSubmit)
+function setCurrentCar(id) {
+  fetch(`${url}/${id}`)
+  .then(result => result.json())
+  .then(car => {
+    carForm.brand.value = car.brand;
+    carForm.type.value = car.type;
+    carForm.fuel.value = car.fuel;
+    carForm.color.value = car.color;
+
+    localStorage.setItem(`currentId`, car.id)
+  });
+}
+
+carForm.addEventListener("submit", handleSubmit)
 
 function handleSubmit(e) {
   e.preventDefault();
   console.log(e);
-  const serverUserObject = {
+  const serverCarObject = {
     brand: "",
     type: "",
     fuel: "",
     color: ""
   };
-  serverUserObject.brand = userForm.brand.value; //kan sättas i loop
-  serverUserObject.type = userForm.type.value;
-  serverUserObject.fuel = userForm.fuel.value;
-  serverUserObject.color = userForm.color.value;
+  serverCarObject.brand = carForm.brand.value; //kan sättas i loop
+  serverCarObject.type = carForm.type.value;
+  serverCarObject.fuel = carForm.fuel.value;
+  serverCarObject.color = carForm.color.value;
 
+  const id = localStorage.getItem("currentId");
+  if(id) {
+    serverCarObject.id = id;
+  }
   const request = new Request(url, {
-    method: "POST",
+    method: serverCarObject.id ? "PUT" : "POST",
     headers: {
       "content-type": "application/json"
     },
-    body: JSON.stringify(serverUserObject)
+    body: JSON.stringify(serverCarObject)
   });
 
   fetch(request).then((response) => {
     fetchData();
-    userForm.reset();
+    localStorage.removeItem("currentId");
+    carForm.reset();
   })
 }
 

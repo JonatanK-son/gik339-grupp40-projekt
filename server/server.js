@@ -29,6 +29,20 @@ server.get("/cars", (req, res) => {
   });
 });
 
+server.get("/cars/:id", (req, res) => {
+  const id = req.params.id;
+
+  const sql = `SELECT * FROM cars WHERE id=${id}`
+
+  db.all(sql, (err, rows) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.send(rows[0]);
+    }
+  });
+})
+
 server.post("/cars", (req, res) => {
   const car = req.body;
   const sql = `INSERT INTO cars(brand, type, fuel, color) VALUES
@@ -43,3 +57,4 @@ server.post("/cars", (req, res) => {
     }
   });
 })
+

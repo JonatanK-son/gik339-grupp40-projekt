@@ -43,6 +43,12 @@ function fetchData() {
       });
 }
 
+function deleteCar(id) {
+  console.log("delete", id);
+  fetch(`${url}/${id}`, {method: "DELETE"})
+  .then((result) => fetchData());
+}
+
 userForm.addEventListener("submit", handleSubmit)
 
 function handleSubmit(e) {

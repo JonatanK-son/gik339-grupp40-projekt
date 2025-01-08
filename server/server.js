@@ -43,3 +43,17 @@ server.post("/cars", (req, res) => {
     }
   });
 })
+
+server.put("/users", (req, res) => {
+  const bodyData = req.body;
+
+  const id = bodyData.id;
+  const car = {
+    brand: bodyData.brand,
+    type: bodyData.type,
+    fuel: bodyData.fuel,
+    color: bodyData.color
+  };
+
+  res.send(car);
+});

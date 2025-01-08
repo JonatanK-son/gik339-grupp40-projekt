@@ -44,7 +44,7 @@ server.post("/cars", (req, res) => {
   });
 })
 
-server.put("/cars", (req, res) => {
+server.put("/users", (req, res) => {
   const bodyData = req.body;
 
   const id = bodyData.id;
@@ -55,20 +55,5 @@ server.put("/cars", (req, res) => {
     color: bodyData.color
   };
 
-  let updateString = "";
-  const columnsArray = Object.keys(car);
-  columnsArray.forEach((column, i) => {
-    updateString += `${column}="${car[column]}"`;
-    if(i !== columnsArray.length - 1) updateString += ",";
-  });
-  const sql = `UPDATE cars SET ${updateString} WHERE id=${id}`; 
-
-  db.run(sql, (err) => {
-    if(err) {
-      console.log(err);
-      res.status(500).send(err);
-    } else {
-      res.send("Bilen updaterades");
-    }
-  });
+  res.send(car);
 });

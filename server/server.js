@@ -45,7 +45,7 @@ server.get("/cars/:id", (req, res) => {
 
 server.post("/cars", (req, res) => {
   const car = req.body;
-  const sql = `INSERT INTO cars(brand, type, fuel, color, year) VALUES
+  const sql = `INSERT INTO cars(brand, type, fuel, year, color) VALUES
   (?,?,?,?,?)`;
 
   db.run(sql, Object.values(car), (err) => {
@@ -66,8 +66,8 @@ server.put("/cars", (req, res) => {
     brand: bodyData.brand,
     type: bodyData.type,
     fuel: bodyData.fuel,
-    color: bodyData.color,
-    year: bodyData.year
+    year: bodyData.year,
+    color: bodyData.color
   };
 
   let updateString = "";

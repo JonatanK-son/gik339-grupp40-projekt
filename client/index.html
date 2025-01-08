@@ -18,28 +18,40 @@
     ></script>
 
     <title>Bilar</title>
-</head>
-<body>
+  </head>
+  <body>
     <header class="text-center position-relative">
-        <img src="DALL·E-2023-12-01-10.20.21-l.png" alt="Car-Showroom" class="header-image opacity-25 h-100 w-100">
-        <h1 class="display-1 fw-bold text-white position-absolute top-50 start-50 translate-middle">Bilregister</h1>
+      <img
+        src="DALL·E-2023-12-01-10.20.21-l.png"
+        alt="Car-Showroom"
+        class="header-image opacity-25 h-100 w-100"
+      />
+      <h1
+        class="display-1 fw-bold text-white position-absolute top-50 start-50 translate-middle"
+      >
+        Bilregister
+      </h1>
     </header>
     <main class="mt-5">
-        <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Logg</h4>
-                </div>
-                <div class="modal-body" id="modalBody">
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
-                </div>
-              </div>
-          
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Logg</h4>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-default"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
             </div>
           </div>
+        </div>
+      </div>
       <div class="container bg-white bg-opacity-25 p-3 rounded">
         <form id="carForm">
           <div class="mb-4 row">
@@ -116,8 +128,8 @@
               class="btn btn-secondary"
               type="submit"
               name="submitCarForm"
-                        data-bs-toggle="modal"
-                        data-bs-target="#myModal"
+              data-bs-toggle="modal"
+              data-bs-target="#myModal"
             >
               Skicka
             </button>

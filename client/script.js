@@ -7,7 +7,7 @@ function fetchData() {
       .then((result) => result.json())
       .then((cars) => {
         if (cars.length > 0) {
-          let html = `<ul class="row g-3 justify-content-center">`;
+          let html = `<ul class="row gap-3 justify-content-center">`;
           cars.forEach((car) => {
             const translatedBGColor = translate(car.color, 0.4);
             const translatedColor = translate(car.color, 0.9);
@@ -28,7 +28,9 @@ function fetchData() {
               <button 
                 class="btn btn-outline-secondary btn-sm mt-2" 
                 style="border-color: ${translatedBorderColor}; background-color: rgba(255, 255, 255, 0.5); color: ${translatedColor};"
-                onclick="deleteCar(${car.id})">
+                onclick="deleteCar(${car.id})"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal">
                 Ta bort
               </button>
             </div>
@@ -47,6 +49,10 @@ function deleteCar(id) {
   console.log("delete", id);
   fetch(`${url}/${id}`, {method: "DELETE"})
   .then((result) => fetchData());
+
+  html = `<p>Bilen togs bort</p>`
+  const modalBody = document.getElementById("modalBody");
+  modalBody.innerHTML = html;
 }
 
 function setCurrentCar(id) {
@@ -95,6 +101,16 @@ function handleSubmit(e) {
     localStorage.removeItem("currentId");
     carForm.reset();
   })
+
+  if(serverCarObject.id) {
+    html = `<p>Bilen uppdaterades</p>`;
+  }
+  else {
+    html = `<p>Bilen lades till</p>`;
+  }
+
+  const modalBody = document.getElementById("modalBody");
+  modalBody.innerHTML = html;
 }
 
 function translate(text, opacity) {

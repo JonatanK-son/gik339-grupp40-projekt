@@ -15,6 +15,21 @@
         <h1 class="fs-3 text-white">Bilregister</h1>
     </header>
     <main class="mt-5">
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Logg</h4>
+                </div>
+                <div class="modal-body" id="modalBody">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+          
+            </div>
+          </div>
         <div class="container bg-white bg-opacity-25 p-3 rounded">
             <form id="carForm">
                 <div class="mb-4 row">
@@ -63,7 +78,9 @@
                     <button
                         class="btn btn-secondary"
                         type="submit"
-                        name="submitCarForm">
+                        name="submitCarForm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal">
                         Skicka
                     </button>
                 </div>

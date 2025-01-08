@@ -2,3 +2,25 @@ body {
     background: rgb(0,0,10);
     background: linear-gradient(90deg, rgba(0,0,10,1) 0%, rgba(22,24,128,1) 50%, rgba(0,0,10,1) 100%);
 }
+header {
+    height: 30vh;
+}
+
+.header-image {
+    object-fit: cover;
+}
+
+header h1 {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: Black;
+}
+li h3{
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: white;
+}
+li p {
+    -webkit-text-stroke-width: 0.3px;
+    -webkit-text-stroke-color: white;
+}

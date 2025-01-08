@@ -66,8 +66,8 @@ server.put("/cars", (req, res) => {
     brand: bodyData.brand,
     type: bodyData.type,
     fuel: bodyData.fuel,
-    color: bodyData.color
-
+    color: bodyData.color,
+    year: bodyData.year
   };
 
   let updateString = "";

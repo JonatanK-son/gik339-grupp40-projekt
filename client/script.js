@@ -116,6 +116,12 @@ function handleSubmit(e) {
   modalBody.innerHTML = html;
 }
 
+carForm.addEventListener("reset", handleReset)
+
+function handleReset(e) {
+  localStorage.removeItem("currentId");
+}
+
 function translate(text, opacity) {
     const lowerCaseText = text.toLowerCase()
     const color = translations[lowerCaseText];
